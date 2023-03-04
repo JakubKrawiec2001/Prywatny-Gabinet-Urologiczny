@@ -1,0 +1,933 @@
+@use "./colors" as *;
+
+*,
+::after,
+::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 90px;
+}
+
+body {
+	font-family: "Montserrat", sans-serif;
+}
+
+.wrapper {
+	max-width: 1400px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.blue-text {
+	color: $blue-text;
+}
+
+.sticky {
+	position: sticky;
+	top: 0;
+	width: 100%;
+}
+
+.bold-text {
+	font-weight: bold;
+}
+
+.shadow-bg {
+	background-color: rgba(75, 76, 77, 0.8);
+}
+
+// NAV
+nav {
+	z-index: 1;
+
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 16px;
+		height: 60px;
+
+		.nav-brand {
+			display: flex;
+			align-items: center;
+			text-transform: uppercase;
+			text-decoration: none;
+			font-weight: bold;
+			font-style: italic;
+			color: $blue-text;
+			font-size: 15px;
+
+			.logo {
+				padding: 5px;
+				font-size: 40px;
+				margin-right: 1px;
+				color: $blue-text;
+			}
+		}
+		.nav-links {
+			display: none;
+			justify-content: flex-end;
+			width: 100%;
+			.nav-link {
+				text-decoration: none;
+				text-transform: uppercase;
+				color: $dark-text;
+				margin: 0 5px;
+				padding: 10px;
+				font-size: 18px;
+				transition: color 0.3s;
+			}
+		}
+		.nav-link:last-child {
+			padding: 10px 20px;
+			border-radius: 8px;
+			background-color: $blue-text;
+			color: $white;
+		}
+
+		.nav-link:last-child:hover {
+			color: $dark-text;
+		}
+
+		.nav-link:hover {
+			color: $blue-text;
+		}
+	}
+	.burger-btn {
+		display: block;
+		font-size: 26px;
+		color: $dark-text;
+	}
+
+	.burger-btn-close {
+		position: absolute;
+		right: 30px;
+		top: 30px;
+		color: $dark-text;
+		font-size: 26px;
+		font-weight: 400;
+		z-index: 100;
+	}
+
+	.burger-nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: $bg-color;
+		transform: translateX(100%);
+		transition: transform 0.3s;
+
+		.burger-nav-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			.burger-nav-item {
+				text-decoration: none;
+				text-transform: uppercase;
+				color: $dark-text;
+				font-size: 30px;
+			}
+
+			ul {
+				list-style: none;
+				text-align: center;
+				li {
+					margin: 30px auto;
+				}
+
+				.li-line {
+					width: 100%;
+					height: 2px;
+					background-color: $dark-text;
+				}
+			}
+		}
+	}
+	.show {
+		transform: translateX(0);
+	}
+}
+
+// HEADER
+
+.header {
+	.bg-circle {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100px;
+		height: 100px;
+		border-bottom-left-radius: 100%;
+		background-color: $bg-color;
+		z-index: -1000;
+	}
+
+	.bg-circle-2 {
+		position: absolute;
+		top: 70px;
+		left: 0;
+		width: 100px;
+		height: 150px;
+		border-top-right-radius: 50%;
+		border-bottom-right-radius: 50%;
+		background-color: $bg-color;
+		z-index: -1000;
+	}
+
+	.dna {
+		display: none;
+	}
+	.header-container {
+		display: flex;
+		justify-content: space-between;
+		align-content: center;
+		.hero-image {
+			margin: 20px 5px;
+			width: 45%;
+			order: 1;
+		}
+
+		.hero-text {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			order: 0;
+			font-size: 8px;
+			margin: 0 8px;
+			color: $dark-text;
+			p {
+				margin-top: 5px;
+				color: $blue-text;
+				font-weight: bold;
+				font-size: 10px;
+			}
+			.hero-btn {
+				padding: 5px 12px;
+				margin: 10px 0;
+				border: none;
+				background-color: $blue-text;
+				cursor: pointer;
+				border-radius: 8px;
+				transition: background-color 0.3s;
+
+				a {
+					text-transform: uppercase;
+					text-decoration: none;
+					font-size: 10px;
+					color: $white;
+					transition: color 0.3s;
+				}
+			}
+		}
+	}
+}
+
+// ABOUTUS
+
+.about-us {
+	background-color: $bg-color;
+
+	.about-us-items {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
+		margin: 0 10px;
+
+		.about-us-item {
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 8px;
+			color: $dark-text;
+			margin-bottom: 10px;
+
+			.about-us-icon-bg {
+				position: relative;
+				margin: 10px auto;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-color: $white;
+				img {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					width: 50%;
+				}
+			}
+		}
+	}
+}
+
+// SERVICES
+.services {
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: 40vh;
+	.services-shape-one {
+		position: absolute;
+		right: 10px;
+		top: 180px;
+		margin-right: 10px;
+		color: $bg-color;
+		font-size: 80px;
+		z-index: -1000;
+		transform: rotate(40deg);
+	}
+
+	.services-shape-two {
+		position: absolute;
+		left: 120px;
+		top: 10px;
+		color: $bg-color;
+		font-size: 40px;
+		z-index: -1000;
+	}
+
+	.services-container {
+		.services-body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 5px;
+			img {
+				width: 50%;
+			}
+
+			.services-text {
+				text-align: center;
+				padding: 10px;
+				h2 {
+					font-size: 15px;
+					color: $blue-text;
+					text-transform: uppercase;
+				}
+
+				p {
+					font-size: 10px;
+					color: $dark-text;
+				}
+			}
+		}
+	}
+}
+
+// FEBU
+.febu {
+	.hospital {
+		display: none;
+	}
+	.febu-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 10px;
+		text-align: center;
+
+		img {
+			width: 50%;
+		}
+
+		.febu-text {
+			padding: 10px;
+			font-size: 12px;
+			p {
+				margin-bottom: 10px;
+				color: $dark-text;
+			}
+
+			a {
+				font-size: 12px;
+				color: $blue-text;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+// CONTACT
+
+.contact {
+	background-color: $bg-color;
+	.contact-container {
+		text-align: center;
+		margin: 20px auto;
+		.map {
+			height: 300px;
+			width: 300px;
+			margin-bottom: 20px;
+		}
+
+		.contact-body {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+
+			.contact-body-items {
+				text-align: center;
+				.contact-body-item {
+					margin-top: 30px;
+					margin-bottom: 10px;
+					width: 200px;
+					padding: 10px 20px;
+					border-radius: 8px;
+					background-color: $blue-text;
+					border: none;
+
+					a {
+						text-decoration: none;
+						color: $white;
+						font-size: 20px;
+					}
+				}
+			}
+
+			.adress {
+				text-align: center;
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
+
+// OPENING-HOURS
+.opening-hours-section {
+	.hand {
+		display: none;
+	}
+
+	.dna-2 {
+		display: none;
+	}
+
+	.heart {
+		display: none;
+	}
+	.opening-hours-container {
+		text-align: center;
+
+		.opening-hours {
+			margin: 20px auto;
+			text-transform: uppercase;
+			width: 300px;
+			border: 3px solid $blue-text;
+			border-spacing: 0;
+			border-radius: 20px;
+			text-align: center;
+			overflow: hidden;
+			padding-bottom: 5px;
+			color: $dark-text;
+
+			th {
+				color: $white;
+				background-color: $blue-text;
+			}
+
+			.open {
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+// GALLERY
+.gallery {
+	display: none;
+}
+
+// FOOTER
+
+.footer {
+	height: 60px;
+	background-color: $blue-text;
+	color: $white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 12px;
+}
+
+// MEDIA
+
+@media (min-width: 768px) {
+	nav {
+		.navbar {
+			height: 80px;
+			.nav-brand {
+				font-size: 20px;
+
+				.logo {
+					font-size: 50px;
+					padding: 5px;
+				}
+			}
+			.nav-links {
+				display: flex;
+				align-items: center;
+
+				.nav-link {
+					padding: 5px;
+					font-size: 14px;
+				}
+
+				.nav-link:last-child {
+					padding: 6px 10px;
+				}
+			}
+		}
+		.burger-btn {
+			display: none;
+		}
+	}
+
+	.header {
+		.dna {
+			display: block;
+			position: absolute;
+			left: 150px;
+			top: 250px;
+			font-size: 230px;
+			transform: rotate(50deg);
+			color: $bg-color;
+			z-index: -1000;
+		}
+
+		.header-container {
+			.hero-text {
+				font-size: 18px;
+
+				p {
+					margin-top: 10px;
+					font-size: 20px;
+				}
+
+				.hero-btn {
+					padding: 20px 40px;
+					margin-top: 30px;
+
+					a {
+						font-size: 20px;
+					}
+				}
+			}
+		}
+	}
+
+	.about-us {
+		.about-us-items {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1px;
+
+			.about-us-item {
+				font-size: 20px;
+				margin: 40px auto;
+
+				p {
+					margin-top: 20px;
+				}
+
+				.about-us-icon-bg {
+					width: 150px;
+					height: 150px;
+					img {
+						width: 60%;
+					}
+				}
+			}
+		}
+	}
+	.services {
+		height: 45vh;
+		.services-shape-one {
+			top: 300px;
+			right: 50px;
+			font-size: 200px;
+		}
+
+		.services-shape-two {
+			left: 350px;
+			top: 40px;
+			font-size: 80px;
+		}
+
+		.services-container {
+			.services-body {
+				.services-text {
+					h2 {
+						font-size: 40px;
+					}
+					p {
+						font-size: 20px;
+					}
+				}
+			}
+		}
+	}
+	.contact {
+		.contact-container {
+			.map {
+				margin-top: 10px;
+				width: 700px;
+				height: 500px;
+				box-shadow: 1px 7px 43px -17px rgba(65, 146, 203, 1);
+			}
+
+			.contact-body {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+
+				p {
+					font-size: 25px;
+				}
+
+				.contact-body-items {
+					display: flex;
+					justify-content: center;
+					.contact-body-item {
+						margin-top: 40px;
+						margin-left: 10px;
+						margin-right: 10px;
+						width: 350px;
+						padding: 20px 40px;
+						border-radius: 5px;
+						background-color: $blue-text;
+
+						a {
+							text-decoration: none;
+							color: $white;
+							text-transform: uppercase;
+							font-size: 23px;
+						}
+					}
+				}
+
+				.adress {
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	.opening-hours-section {
+		.opening-hours-container {
+			margin-top: 60px;
+			.opening-hours {
+				width: 600px;
+				height: 200px;
+				font-size: 30px;
+				th {
+					font-size: 34px;
+				}
+			}
+		}
+	}
+
+	.febu {
+		.febu-container {
+			margin: 60px auto;
+			.febu-text {
+				p {
+					font-size: 22px;
+				}
+
+				a {
+					font-size: 22px;
+				}
+			}
+		}
+	}
+
+	.footer {
+		height: 100px;
+		font-size: 22px;
+	}
+}
+
+@media (min-width: 992px) {
+	nav {
+		.navbar {
+			.nav-links {
+				.nav-link {
+					padding: 5px;
+					font-size: 18px;
+				}
+
+				.nav-link:last-child {
+					padding: 8px 15px;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	nav {
+		.navbar {
+			.nav-brand {
+				font-size: 25px;
+
+				.logo {
+					font-size: 70px;
+				}
+			}
+
+			.nav-links {
+				.nav-link {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+
+	.header {
+		.bg-circle {
+			width: 300px;
+			height: 300px;
+		}
+
+		.bg-circle-2 {
+			width: 200px;
+			height: 450px;
+		}
+
+		.dna {
+			left: 650px;
+			top: 400px;
+			font-size: 350px;
+		}
+	}
+
+	.about-us {
+		margin-bottom: 40px;
+
+		.about-us-title {
+			margin: 40px 0 60px 30px;
+			font-size: 35px;
+		}
+
+		.about-us-items {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-template-rows: auto;
+			gap: 10px;
+
+			.about-us-item {
+				font-size: 20px;
+			}
+		}
+	}
+
+	.services {
+		height: 60vh;
+		.services-shape-one {
+			right: 100px;
+			font-size: 360px;
+		}
+
+		.services-shape-two {
+			font-size: 150px;
+			left: 100px;
+		}
+
+		.services-container {
+			.services-body {
+				img {
+					margin: 40px auto;
+					width: 35%;
+				}
+				.services-text {
+					h2 {
+						font-size: 45px;
+					}
+
+					p {
+						font-size: 30px;
+					}
+				}
+			}
+		}
+	}
+
+	.contact {
+		.contact-container {
+			.map {
+				height: 800px;
+				width: 1000px;
+				margin-bottom: 40px;
+			}
+
+			.contact-body {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+
+				.contact-body-items {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					.contact-body-number {
+						height: 200px;
+						margin-right: 60px;
+						p {
+							margin-top: 5px;
+						}
+					}
+					.contact-body-map {
+						height: 200px;
+						margin-left: 60px;
+					}
+
+					.contact-body-item {
+						margin-top: 40px;
+						margin-bottom: 10px;
+						width: 350px;
+						padding: 20px 40px;
+						border-radius: 5px;
+						background-color: $blue-text;
+						cursor: pointer;
+
+						a {
+							text-decoration: none;
+							color: $white;
+							font-size: 25px;
+							font-weight: bold;
+						}
+					}
+				}
+				.map {
+					margin: 50px auto;
+					width: 1200px;
+					height: 800px;
+					box-shadow: 1px 7px 43px -17px rgba(65, 146, 203, 1);
+				}
+
+				.adress {
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	.opening-hours-section {
+		position: relative;
+		.hand {
+			display: block;
+			position: absolute;
+			font-size: 150px;
+			top: 50px;
+			left: 300px;
+			transform: rotate(-20deg);
+			color: $bg-color;
+			z-index: -1000;
+		}
+
+		.dna-2 {
+			display: block;
+			position: absolute;
+			bottom: 0;
+			right: 200px;
+			font-size: 100px;
+			color: $bg-color;
+			transform: rotate(-40deg);
+			z-index: -1000;
+		}
+
+		.heart {
+			display: block;
+			position: absolute;
+			top: 800px;
+			right: 250px;
+			font-size: 200px;
+			transform: rotate(30deg);
+			color: $bg-color;
+			z-index: -1000;
+		}
+		.opening-hours-container {
+			margin-bottom: 60px;
+		}
+	}
+
+	.gallery {
+		display: block;
+		.gallery-bg-image {
+			position: relative;
+			background-image: url("../img/gallery-bg.jpg");
+			background-attachment: fixed;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			height: 30vh;
+			z-index: 0;
+			.gallery-bg-shadow {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(48, 113, 255, 0.8);
+				z-index: -10;
+			}
+
+			.gallery-body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				
+				h2 {
+					text-transform: uppercase;
+					font-size: 40px;
+					color: $white;
+				}
+			}
+		}
+	}
+
+	.febu {
+		position: relative;
+		.hospital {
+			display: block;
+			position: absolute;
+			bottom: -60px;
+			left: 250px;
+			font-size: 200px;
+			color: $bg-color;
+			z-index: -1000;
+		}
+		.febu-container {
+			img {
+				width: 25%;
+			}
+
+			.febu-text {
+				p {
+					width: 600px;
+					margin: 10px;
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}

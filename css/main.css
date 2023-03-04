@@ -1,0 +1,769 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.wrapper {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.blue-text {
+  color: #3071ff;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.shadow-bg {
+  background-color: rgba(75, 76, 77, 0.8);
+}
+
+nav {
+  z-index: 1;
+}
+nav .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  height: 60px;
+}
+nav .navbar .nav-brand {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  font-style: italic;
+  color: #3071ff;
+  font-size: 15px;
+}
+nav .navbar .nav-brand .logo {
+  padding: 5px;
+  font-size: 40px;
+  margin-right: 1px;
+  color: #3071ff;
+}
+nav .navbar .nav-links {
+  display: none;
+  justify-content: flex-end;
+  width: 100%;
+}
+nav .navbar .nav-links .nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #4b4c4d;
+  margin: 0 5px;
+  padding: 10px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+nav .navbar .nav-link:last-child {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #3071ff;
+  color: #fff;
+}
+nav .navbar .nav-link:last-child:hover {
+  color: #4b4c4d;
+}
+nav .navbar .nav-link:hover {
+  color: #3071ff;
+}
+nav .burger-btn {
+  display: block;
+  font-size: 26px;
+  color: #4b4c4d;
+}
+nav .burger-btn-close {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  color: #4b4c4d;
+  font-size: 26px;
+  font-weight: 400;
+  z-index: 100;
+}
+nav .burger-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #e6f4ff;
+  transform: translateX(100%);
+  transition: transform 0.3s;
+}
+nav .burger-nav .burger-nav-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+nav .burger-nav .burger-nav-text .burger-nav-item {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #4b4c4d;
+  font-size: 30px;
+}
+nav .burger-nav .burger-nav-text ul {
+  list-style: none;
+  text-align: center;
+}
+nav .burger-nav .burger-nav-text ul li {
+  margin: 30px auto;
+}
+nav .burger-nav .burger-nav-text ul .li-line {
+  width: 100%;
+  height: 2px;
+  background-color: #4b4c4d;
+}
+nav .show {
+  transform: translateX(0);
+}
+
+.header .bg-circle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  border-bottom-left-radius: 100%;
+  background-color: #e6f4ff;
+  z-index: -1000;
+}
+.header .bg-circle-2 {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100px;
+  height: 150px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  background-color: #e6f4ff;
+  z-index: -1000;
+}
+.header .dna {
+  display: none;
+}
+.header .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.header .header-container .hero-image {
+  margin: 20px 5px;
+  width: 45%;
+  order: 1;
+}
+.header .header-container .hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  order: 0;
+  font-size: 8px;
+  margin: 0 8px;
+  color: #4b4c4d;
+}
+.header .header-container .hero-text p {
+  margin-top: 5px;
+  color: #3071ff;
+  font-weight: bold;
+  font-size: 10px;
+}
+.header .header-container .hero-text .hero-btn {
+  padding: 5px 12px;
+  margin: 10px 0;
+  border: none;
+  background-color: #3071ff;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+.header .header-container .hero-text .hero-btn a {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 10px;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.about-us {
+  background-color: #e6f4ff;
+}
+.about-us .about-us-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0 10px;
+}
+.about-us .about-us-items .about-us-item {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 8px;
+  color: #4b4c4d;
+  margin-bottom: 10px;
+}
+.about-us .about-us-items .about-us-item .about-us-icon-bg {
+  position: relative;
+  margin: 10px auto;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.about-us .about-us-items .about-us-item .about-us-icon-bg img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
+.services {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 40vh;
+}
+.services .services-shape-one {
+  position: absolute;
+  right: 10px;
+  top: 180px;
+  margin-right: 10px;
+  color: #e6f4ff;
+  font-size: 80px;
+  z-index: -1000;
+  transform: rotate(40deg);
+}
+.services .services-shape-two {
+  position: absolute;
+  left: 120px;
+  top: 10px;
+  color: #e6f4ff;
+  font-size: 40px;
+  z-index: -1000;
+}
+.services .services-container .services-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+.services .services-container .services-body img {
+  width: 50%;
+}
+.services .services-container .services-body .services-text {
+  text-align: center;
+  padding: 10px;
+}
+.services .services-container .services-body .services-text h2 {
+  font-size: 15px;
+  color: #3071ff;
+  text-transform: uppercase;
+}
+.services .services-container .services-body .services-text p {
+  font-size: 10px;
+  color: #4b4c4d;
+}
+
+.febu .hospital {
+  display: none;
+}
+.febu .febu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  text-align: center;
+}
+.febu .febu-container img {
+  width: 50%;
+}
+.febu .febu-container .febu-text {
+  padding: 10px;
+  font-size: 12px;
+}
+.febu .febu-container .febu-text p {
+  margin-bottom: 10px;
+  color: #4b4c4d;
+}
+.febu .febu-container .febu-text a {
+  font-size: 12px;
+  color: #3071ff;
+  font-weight: bold;
+}
+
+.contact {
+  background-color: #e6f4ff;
+}
+.contact .contact-container {
+  text-align: center;
+  margin: 20px auto;
+}
+.contact .contact-container .map {
+  height: 300px;
+  width: 300px;
+  margin-bottom: 20px;
+}
+.contact .contact-container .contact-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.contact .contact-container .contact-body .contact-body-items {
+  text-align: center;
+}
+.contact .contact-container .contact-body .contact-body-items .contact-body-item {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  width: 200px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #3071ff;
+  border: none;
+}
+.contact .contact-container .contact-body .contact-body-items .contact-body-item a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+}
+.contact .contact-container .contact-body .adress {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.opening-hours-section .hand {
+  display: none;
+}
+.opening-hours-section .dna-2 {
+  display: none;
+}
+.opening-hours-section .heart {
+  display: none;
+}
+.opening-hours-section .opening-hours-container {
+  text-align: center;
+}
+.opening-hours-section .opening-hours-container .opening-hours {
+  margin: 20px auto;
+  text-transform: uppercase;
+  width: 300px;
+  border: 3px solid #3071ff;
+  border-spacing: 0;
+  border-radius: 20px;
+  text-align: center;
+  overflow: hidden;
+  padding-bottom: 5px;
+  color: #4b4c4d;
+}
+.opening-hours-section .opening-hours-container .opening-hours th {
+  color: #fff;
+  background-color: #3071ff;
+}
+.opening-hours-section .opening-hours-container .opening-hours .open {
+  font-weight: bold;
+}
+
+.gallery {
+  display: none;
+}
+
+.footer {
+  height: 60px;
+  background-color: #3071ff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  nav .navbar {
+    height: 80px;
+  }
+  nav .navbar .nav-brand {
+    font-size: 20px;
+  }
+  nav .navbar .nav-brand .logo {
+    font-size: 50px;
+    padding: 5px;
+  }
+  nav .navbar .nav-links {
+    display: flex;
+    align-items: center;
+  }
+  nav .navbar .nav-links .nav-link {
+    padding: 5px;
+    font-size: 14px;
+  }
+  nav .navbar .nav-links .nav-link:last-child {
+    padding: 6px 10px;
+  }
+  nav .burger-btn {
+    display: none;
+  }
+  .header .dna {
+    display: block;
+    position: absolute;
+    left: 150px;
+    top: 250px;
+    font-size: 230px;
+    transform: rotate(50deg);
+    color: #e6f4ff;
+    z-index: -1000;
+  }
+  .header .header-container .hero-text {
+    font-size: 18px;
+  }
+  .header .header-container .hero-text p {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  .header .header-container .hero-text .hero-btn {
+    padding: 20px 40px;
+    margin-top: 30px;
+  }
+  .header .header-container .hero-text .hero-btn a {
+    font-size: 20px;
+  }
+  .about-us .about-us-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+  }
+  .about-us .about-us-items .about-us-item {
+    font-size: 20px;
+    margin: 40px auto;
+  }
+  .about-us .about-us-items .about-us-item p {
+    margin-top: 20px;
+  }
+  .about-us .about-us-items .about-us-item .about-us-icon-bg {
+    width: 150px;
+    height: 150px;
+  }
+  .about-us .about-us-items .about-us-item .about-us-icon-bg img {
+    width: 60%;
+  }
+  .services {
+    height: 45vh;
+  }
+  .services .services-shape-one {
+    top: 300px;
+    right: 50px;
+    font-size: 200px;
+  }
+  .services .services-shape-two {
+    left: 350px;
+    top: 40px;
+    font-size: 80px;
+  }
+  .services .services-container .services-body .services-text h2 {
+    font-size: 40px;
+  }
+  .services .services-container .services-body .services-text p {
+    font-size: 20px;
+  }
+  .contact .contact-container .map {
+    margin-top: 10px;
+    width: 700px;
+    height: 500px;
+    box-shadow: 1px 7px 43px -17px rgb(65, 146, 203);
+  }
+  .contact .contact-container .contact-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .contact .contact-container .contact-body p {
+    font-size: 25px;
+  }
+  .contact .contact-container .contact-body .contact-body-items {
+    display: flex;
+    justify-content: center;
+  }
+  .contact .contact-container .contact-body .contact-body-items .contact-body-item {
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 350px;
+    padding: 20px 40px;
+    border-radius: 5px;
+    background-color: #3071ff;
+  }
+  .contact .contact-container .contact-body .contact-body-items .contact-body-item a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 23px;
+  }
+  .contact .contact-container .contact-body .adress {
+    text-align: center;
+  }
+  .opening-hours-section .opening-hours-container {
+    margin-top: 60px;
+  }
+  .opening-hours-section .opening-hours-container .opening-hours {
+    width: 600px;
+    height: 200px;
+    font-size: 30px;
+  }
+  .opening-hours-section .opening-hours-container .opening-hours th {
+    font-size: 34px;
+  }
+  .febu .febu-container {
+    margin: 60px auto;
+  }
+  .febu .febu-container .febu-text p {
+    font-size: 22px;
+  }
+  .febu .febu-container .febu-text a {
+    font-size: 22px;
+  }
+  .footer {
+    height: 100px;
+    font-size: 22px;
+  }
+}
+@media (min-width: 992px) {
+  nav .navbar .nav-links .nav-link {
+    padding: 5px;
+    font-size: 18px;
+  }
+  nav .navbar .nav-links .nav-link:last-child {
+    padding: 8px 15px;
+  }
+}
+@media (min-width: 1200px) {
+  nav .navbar .nav-brand {
+    font-size: 25px;
+  }
+  nav .navbar .nav-brand .logo {
+    font-size: 70px;
+  }
+  nav .navbar .nav-links .nav-link {
+    font-size: 20px;
+  }
+  .header .bg-circle {
+    width: 300px;
+    height: 300px;
+  }
+  .header .bg-circle-2 {
+    width: 200px;
+    height: 450px;
+  }
+  .header .dna {
+    left: 650px;
+    top: 400px;
+    font-size: 350px;
+  }
+  .about-us {
+    margin-bottom: 40px;
+  }
+  .about-us .about-us-title {
+    margin: 40px 0 60px 30px;
+    font-size: 35px;
+  }
+  .about-us .about-us-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+  }
+  .about-us .about-us-items .about-us-item {
+    font-size: 20px;
+  }
+  .services {
+    height: 60vh;
+  }
+  .services .services-shape-one {
+    right: 100px;
+    font-size: 360px;
+  }
+  .services .services-shape-two {
+    font-size: 150px;
+    left: 100px;
+  }
+  .services .services-container .services-body img {
+    margin: 40px auto;
+    width: 35%;
+  }
+  .services .services-container .services-body .services-text h2 {
+    font-size: 45px;
+  }
+  .services .services-container .services-body .services-text p {
+    font-size: 30px;
+  }
+  .contact .contact-container .map {
+    height: 800px;
+    width: 1000px;
+    margin-bottom: 40px;
+  }
+  .contact .contact-container .contact-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .contact .contact-container .contact-body .contact-body-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact .contact-container .contact-body .contact-body-items .contact-body-number {
+    height: 200px;
+    margin-right: 60px;
+  }
+  .contact .contact-container .contact-body .contact-body-items .contact-body-number p {
+    margin-top: 5px;
+  }
+  .contact .contact-container .contact-body .contact-body-items .contact-body-map {
+    height: 200px;
+    margin-left: 60px;
+  }
+  .contact .contact-container .contact-body .contact-body-items .contact-body-item {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    width: 350px;
+    padding: 20px 40px;
+    border-radius: 5px;
+    background-color: #3071ff;
+    cursor: pointer;
+  }
+  .contact .contact-container .contact-body .contact-body-items .contact-body-item a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .contact .contact-container .contact-body .map {
+    margin: 50px auto;
+    width: 1200px;
+    height: 800px;
+    box-shadow: 1px 7px 43px -17px rgb(65, 146, 203);
+  }
+  .contact .contact-container .contact-body .adress {
+    text-align: center;
+  }
+  .opening-hours-section {
+    position: relative;
+  }
+  .opening-hours-section .hand {
+    display: block;
+    position: absolute;
+    font-size: 150px;
+    top: 50px;
+    left: 300px;
+    transform: rotate(-20deg);
+    color: #e6f4ff;
+    z-index: -1000;
+  }
+  .opening-hours-section .dna-2 {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 200px;
+    font-size: 100px;
+    color: #e6f4ff;
+    transform: rotate(-40deg);
+    z-index: -1000;
+  }
+  .opening-hours-section .heart {
+    display: block;
+    position: absolute;
+    top: 800px;
+    right: 250px;
+    font-size: 200px;
+    transform: rotate(30deg);
+    color: #e6f4ff;
+    z-index: -1000;
+  }
+  .opening-hours-section .opening-hours-container {
+    margin-bottom: 60px;
+  }
+  .gallery {
+    display: block;
+  }
+  .gallery .gallery-bg-image {
+    position: relative;
+    background-image: url("../img/gallery-bg.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 30vh;
+    z-index: 0;
+  }
+  .gallery .gallery-bg-image .gallery-bg-shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(48, 113, 255, 0.8);
+    z-index: -10;
+  }
+  .gallery .gallery-bg-image .gallery-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .gallery .gallery-bg-image .gallery-body h2 {
+    text-transform: uppercase;
+    font-size: 40px;
+    color: #fff;
+  }
+  .febu {
+    position: relative;
+  }
+  .febu .hospital {
+    display: block;
+    position: absolute;
+    bottom: -60px;
+    left: 250px;
+    font-size: 200px;
+    color: #e6f4ff;
+    z-index: -1000;
+  }
+  .febu .febu-container img {
+    width: 25%;
+  }
+  .febu .febu-container .febu-text p {
+    width: 600px;
+    margin: 10px;
+    font-size: 20px;
+  }
+}/*# sourceMappingURL=main.css.map */
